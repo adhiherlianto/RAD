@@ -86,8 +86,8 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5>Every child yearns to learn</h5>
-                            <h1>AHH
+                            <h5>apalah</h5>
+                            <h1>bismillah
                                 World Better</h1>
                             <p>Replenish seasons may male hath fruit beast were seas saw you arrie said man beast whales
                                 his void unto last session for bite. Set have great you'll male grass yielding yielding
