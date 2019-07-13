@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'OrderController@index')->name('dashboard');
+Route::get('/order', 'OrderController@order')->name('order');
