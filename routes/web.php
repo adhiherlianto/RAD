@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('');
+// });
 
 Auth::routes();
-
+Route::get('/formOrder/{id}', 'FrontController@form')->name('order');
+Route::get('/', 'FrontController@index')->name('pageone');
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['middleware' => ['auth']], function () { 
     Route::get('/dashboard', 'OrderController@index')->name('dashboard');
@@ -30,4 +32,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');    
 });
 
+
+// Route::get('/dashboard', 'OrderController@index')->name('dashboard');
+// Route::get('/order', 'OrderController@order')->name('order');
+Route::get('formOrder/insert/{id}', 'FrontController@insert')->name('form.insert');
 
