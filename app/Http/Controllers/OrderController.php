@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Order;
+use Auth;
+
 
 class OrderController extends Controller
 {
@@ -21,9 +24,10 @@ class OrderController extends Controller
         $order = DB::table('orders')        
                 ->join('customers', 'customers.id', '=', 'orders.customer_id')
                 ->join('produks', 'orders.produk_id', '=', 'produks.id' )
-                ->select('customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah')
+                ->select('customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id as id')
                 ->where('orders.status', '=', '0')
                 ->get();        
+                // dd($order);
         return view('admin.order', ['order'=> $order]);
     }
 
@@ -66,8 +70,18 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {                       
+        $order = DB::table('orders')        
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('produks', 'orders.produk_id', '=', 'produks.id' )
+                ->select('customers.id AS cid','customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id AS id')
+                ->where('orders.id', '=', $id)
+                ->first();
+                // dd($order);
+        
+        $produk = DB::table('produks')->get();
+
+        return view('admin.edit', ['order'=> $order, 'produk' => $produk]);
     }
 
     /**
@@ -77,9 +91,21 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $cid)
     {
-        //
+
+        DB::table('customers')->where(['id' => $cid])->update([
+            'nama' => $request->nama,            
+            'nohp' => $request->nohp,
+            'keterangan' => $request->keterangan,
+        ]);
+
+        DB::table('orders')->where(['id'=> $id])->update([
+            'jumlah' => $request->jumlah,
+            'produk_id' => $request->produk
+        ]);
+
+        return redirect()->route('order');
     }
 
     /**
@@ -90,6 +116,38 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = DB::table('orders')        
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('produks', 'orders.produk_id', '=', 'produks.id' )
+                ->select('customers.id AS cid','customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id AS id')
+                ->where('orders.id', '=', $id)
+                ->first();
+                // dd($order);
+        
+        DB::table('orders')->where('id', $id)->delete();
+        DB::table('customers')->where('id', $order->cid)->delete();
+        return redirect()->route('order');        
+    }
+
+    public function selesai($id){
+        $update =   DB::table('orders')->update(['status'=>'1'])->where('id', '=', $id);
+
+        return redirect()->route('order');
+    }
+
+    public function history(){
+
+        $history = DB::table('orders')        
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('produks', 'orders.produk_id', '=', 'produks.id' )
+                ->select('customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id as id')
+                ->where('orders.status', '=', '1')
+                ->get();        
+                // dd($order);
+        return view('admin.history', ['order'=> $history]);
+    }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/login');
     }
 }

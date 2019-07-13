@@ -67,10 +67,21 @@ The above copyright notice and this permission notice shall be included in all c
           <li>
             <a href="{{route('order')}}">
               <i class="nc-icon nc-diamond"></i>
-              <p>Icons</p>
+              <p>Orders</p>
+            </a>
+          </li>          
+          <li>
+            <a href="{{route('order.history')}}">
+              <i class="nc-icon nc-diamond"></i>
+              <p>History</p>
             </a>
           </li>
           <li>
+            <a href="{{route('logout')}}">
+              <i class="nc-icon nc-diamond"></i>
+              <p>Logout</p>
+            </a>
+          </li>          
             <!-- <a href="./map.html">
               <i class="nc-icon nc-pin-3"></i>
               <p>Maps</p>
