@@ -16,7 +16,9 @@
 // });
 
 Auth::routes();
+Route::get('/formOrder/{id}', 'FrontController@form')->name('order');
 Route::get('/', 'FrontController@index')->name('pageone');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'OrderController@index')->name('dashboard');
 Route::get('/order', 'OrderController@order')->name('order');
+Route::get('formOrder/insert/{id}', 'FrontController@insert')->name('form.insert');

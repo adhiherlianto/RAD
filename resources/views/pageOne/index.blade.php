@@ -33,7 +33,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <a class="navbar-brand" href="index.html"> <img src="{{asset('assets/front/img/logo.png')}}" alt="logo"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -86,14 +86,16 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5>apalah</h5>
-                            <h1>bismillah
-                                World Better</h1>
-                            <p>Replenish seasons may male hath fruit beast were seas saw you arrie said man beast whales
-                                his void unto last session for bite. Set have great you'll male grass yielding yielding
-                                man</p>
-                            <a href="#" class="btn_1">View Course </a>
-                            <a href="#" class="btn_2">Get Started </a>
+                            <h5>RAD</h5>
+                            <h1> Cari cemilan ??? kunjungi website kami saja </h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <!-- <a href="#" class="btn_1">View Course </a>
+                            <a href="#" class="btn_2">Get Started </a> -->
                         </div>
                     </div>
                 </div>
@@ -120,8 +122,7 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="fas fa-cloud"></i></span>
                             <h4>Layanan Teknologi Internet</h4>
-                            <p>Set have great you male grasses yielding yielding first their to
-                                called deep abundantly Set have great you male</p>
+                            <p>Kami hadir dengan teknologi cloud-computing, Online Service.</p>
                         </div>
                     </div>
                 </div>
@@ -130,8 +131,7 @@
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><i class="ti-new-window"></i></span>
                             <h4>Layanan Antar</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called
-                                deep abundantly Set have great you male</p>
+                            <p>Kami memiliki layanan antar bagi anda yang sibuk dalam aktifitasnya.</p>
                         </div>
                     </div>
                 </div>
@@ -140,8 +140,7 @@
                         <div class="single_feature_part single_feature_part_2">
                             <span class="single_service_icon style_icon"><i class="ti-light-bulb"></i></span>
                             <h4>Open 24/7</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep
-                                abundantly Set have great you male</p>
+                            <p>Buka Setiap Hari 24Jam</p>
                         </div>
                     </div>
                 </div>
@@ -151,12 +150,12 @@
     <!-- upcoming_event part start-->
 
     <!-- learning part start-->
-    <section class="learning_part">
+  <!--   <section class="learning_part">
         <div class="container">
             <div class="row align-items-sm-center align-items-lg-stretch">
                 <div class="col-md-7 col-lg-7">
                     <div class="learning_img">
-                        <img src="img/learning_img.png" alt="">
+                        <img src="{{asset('assets/front/img/product.png')}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-5">
@@ -178,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- learning part end-->
 
     <!-- member_counter counter start -->
@@ -226,21 +225,24 @@
                 </div>
             </div>
             <div class="row">
+
+                @foreach($produk as $produk)
                 <div class="col-sm-6 col-lg-4">
+
                     <div class="single_special_cource">
                         <img src="img/special_cource_1.png" class="special_img" alt="">
                         <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Web Development</a>
-                            <h4>$130.00</h4>
-                            <p><img src="{{asset('assets/front/img/favicon.png')}}" alt=""></p>
-                            <a href="course-details.html"><h3>Web Development</h3></a>
+                            <a href="{{url('/formOrder', ['id'=> $produk->id])}}" class="btn_4">Order</a>
+                            <h4>{{$produk->harga}}</h4>
+                            <p><img src="{{asset('assets/front/img/kue_1.png')}}" alt=""></p>
+                            <a href="course-details.html"><h3>{{$produk->nama}}</h3></a>
                             <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
                             <div class="author_info">
                                 <div class="author_img">
                                     <img src="img/author/author_1.png" alt="">
                                     <div class="author_info_text">
                                         <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
+                                        
                                     </div>
                                 </div>
                                 <div class="author_rating">
@@ -258,20 +260,23 @@
 
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
+
+                @endforeach
+                <!-- <div class="col-sm-6 col-lg-4">
                     <div class="single_special_cource">
                         <img src="img/special_cource_2.png" class="special_img" alt="">
                         <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">design</a>
+                            <a href="{{url('/formOrder')}}" class="btn_4">Order</a>
                             <h4>$160.00</h4>
-                            <a href="course-details.html"> <h3>Web UX/UI Design </h3></a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                            <p><img src="{{asset('assets/front/img/kue_2.png')}}" alt=""></p>
+                            <a href="course-details.html"> <h3>Black forest</h3></a>
+                            <p>Kue ini terbuat dari bolu coklat yang dilapisi krim segar, serutan coklat dan ceri yang direndam dalam Kirschwasser, schnapps ceri jernih khas daerah Schwarzwälder ("Black Forest")</p>
                             <div class="author_info">
                                 <div class="author_img">
                                     <img src="img/author/author_2.png" alt="">
                                     <div class="author_info_text">
                                         <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
+                                        
                                     </div>
                                 </div>
                                 <div class="author_rating">
@@ -288,21 +293,22 @@
                         </div>
 
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
+                </div> -->
+                <!-- <div class="col-sm-6 col-lg-4">
                     <div class="single_special_cource">
                         <img src="img/special_cource_3.png" class="special_img" alt="">
                         <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Wordpress</a>
+                            <a href="{{url('/formOrder')}}" class="btn_4">Order</a>
                             <h4>$140.00</h4>
-                            <a href="course-details.html">  <h3>Wordpress Development</h3> </a> 
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                            <p><img src="{{asset('assets/front/img/kue_3.png')}}" alt=""></p>
+                            <a href="course-details.html">  <h3>Tres leches</h3> </a>
+                            <p> kue ini menggunakan kayu manis sebagai topping, tetapi masih banyak variasi topping yang dapat digunakan. Mari belajar cara membuat kue tres leches dengan pilihan topping lainnya </p>
                             <div class="author_info">
                                 <div class="author_img">
                                     <img src="img/author/author_3.png" alt="">
                                     <div class="author_info_text">
                                         <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
+                                        
                                     </div>
                                 </div>
                                 <div class="author_rating">
@@ -319,14 +325,14 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
     <!--::blog_part end::-->
 
     <!-- learning part start-->
-    <section class="advance_feature learning_part">
+  <!--   <section class="advance_feature learning_part">
         <div class="container">
             <div class="row align-items-sm-center align-items-xl-stretch">
                 <div class="col-md-6 col-lg-6">
@@ -357,12 +363,12 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="learning_img">
-                        <img src="img/advance_feature_img.png" alt="">
+                        <img src="{{asset('assets/front/img/product.png')}}" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- learning part end-->
 
     <!--::review_part start::-->
@@ -392,7 +398,7 @@
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_1.png" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_1.png')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
@@ -406,7 +412,7 @@
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_1.png" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_2.png')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -424,7 +430,7 @@
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_2.png" alt="#">
+                                         <img src="{{asset('assets/front/img/testimonial_img_3.png')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
@@ -438,7 +444,7 @@
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_1.png" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_1.png')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -456,7 +462,7 @@
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_3.png" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_2.png')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
@@ -470,7 +476,7 @@
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="img/testimonial_img_1.png" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_3.png')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -498,11 +504,11 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="img/blog/blog_1.png" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/blog_1.png')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
-                                <a href="#" class="btn_4">Design</a>
+                                <!-- <a href="#" class="btn_4">Design</a> -->
                                 <a href="blog.html">
-                                    <h5 class="card-title">Dry beginning sea over tree</h5>
+                                    <h5 class="card-title">Akli Hakiki Hasibuan</h5>
                                 </a>
                                 <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
                                 <ul>
@@ -516,11 +522,11 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="img/blog/blog_2.png" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/blog_3.png')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
-                                <a href="#" class="btn_4">Developing</a>
+                                <!-- <a href="#" class="btn_4">Developing</a> -->
                                 <a href="blog.html">
-                                    <h5 class="card-title">All beginning air two likeness</h5>
+                                    <h5 class="card-title">Muhammad Adhi Herlianto Hasibuan</h5>
                                 </a>
                                 <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
                                 <ul>
@@ -534,11 +540,11 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="img/blog/blog_3.png" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/blog_2.png')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
-                                <a href="#" class="btn_4">Design</a>
+                                <!-- <a href="#" class="btn_4">Design</a> -->
                                 <a href="blog.html">
-                                    <h5 class="card-title">Form day seasons sea hand</h5>
+                                    <h5 class="card-title">Muhammad Rafly Tarhan Hasibuan</h5>
                                 </a>
                                 <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
                                 <ul>

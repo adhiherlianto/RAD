@@ -613,9 +613,9 @@ ul {
 
 /* line 97, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
 .btn_4 {
-  background-color: #ff663b;
+  background-color: #34266B;
   padding: 3.5px 21px;
-  background: #ff663b;
+  background: #34266B;
   text-transform: capitalize;
   display: inline-block;
   border: 2px solid transparent;
@@ -1287,7 +1287,7 @@ ul {
   left: 10px;
   display: block;
   color: #fff;
-  background-color: #ff7e5f;
+  background-color: #34266B;
   padding: 8px 15px;
   border-radius: 5px;
 }
@@ -4039,7 +4039,7 @@ ul {
 /* line 61, E:/172 Etrain Education/172_Etrain_Education_html/sass/_special_cource.scss */
 .special_cource .single_special_cource .special_cource_text h4 {
   float: right;
-  color: #ff663b;
+  color: #34266B;
   font-weight: 600;
 }
 
