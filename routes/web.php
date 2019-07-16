@@ -31,7 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('order/update/{id}/{cid}', 'OrderController@update')->name('order.update');
     Route::get('order/selesai/{id}', 'OrderController@selesai')->name('order.selesai');
     Route::get('order/history', 'OrderController@history')->name('order.history');
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');    
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+    Route::get('order/grafik', 'OrderController@grafikProduk');
 });
 
 
