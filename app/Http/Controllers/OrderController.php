@@ -150,4 +150,18 @@ class OrderController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+    public function grafikProduk()
+    {
+        # code...
+        $kateogri = DB::table('produks')->get();
+        $value = [];
+        $label = [];
+        foreach ($kateogri as $i => $v) {
+            $value[$i] = DB::table('orders')->where('produk_id',$v->id)->count();
+            $label[$i] = $v->nama;
+        }
+        return view('/admin/dashboard')
+        ->with('value',json_encode($value))
+        ->with('label',json_encode($label));
+    }
 }
