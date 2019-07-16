@@ -27,7 +27,7 @@ class OrderController extends Controller
         $order = DB::table('orders')        
                 ->join('customers', 'customers.id', '=', 'orders.customer_id')
                 ->join('produks', 'orders.produk_id', '=', 'produks.id' )
-                ->select('customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id as id')
+                ->select('customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id as id', DB::raw('orders.jumlah * produks.harga AS total' ))
                 ->where('orders.status', '=', '0')
                 ->get();        
                 // dd($order);
@@ -85,7 +85,6 @@ class OrderController extends Controller
             'jumlah' => $request->jumlah,
             'status' => '0'
         ]);
-
 
         return redirect()->route('order');
     }
@@ -193,15 +192,23 @@ class OrderController extends Controller
     public function grafikProduk()
     {
         # code...
-        $kateogri = DB::table('produks')->get();
+        $kateogri = DB::table('produks')->get();  
+        dd($keteogori)      ;
         $value = [];
         $label = [];
         foreach ($kateogri as $i => $v) {
             $value[$i] = DB::table('orders')->where('produk_id',$v->id)->count();
             $label[$i] = $v->nama;
         }
-        return view('/admin/dashboard')
-        ->with('value',json_encode($value))
-        ->with('label',json_encode($label));
+
+        // return view('/admin/dashboard')
+        // ->with('value',json_encode($value))
+        // ->with('label',json_encode($label));
+        // dd($label);
+
+        return view('/admin/dashboard',[
+            'value' => json_encode($value),
+            'label' => json_encode($label)
+        ]);
     }
 }

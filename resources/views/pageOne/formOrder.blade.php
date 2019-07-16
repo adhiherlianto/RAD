@@ -80,7 +80,7 @@
                     <div class="blog_left_sidebar">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{asset('assets/front/img/blog/order-now.png')}}" alt="">
+                                <img class="card-img rounded-0" src="{{url($produk->foto)}}" alt="" style="width:100%;height:500px;">
                                 <a href="#" class="blog_item_date">
                                     <h3>18</h3>
                                     <p>Jul</p>
@@ -104,36 +104,52 @@
                                                     <h2 class="contact-title mt-2">Form</h2>
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <form class="form-contact contact_form" action="{{route('form.insert', ['id'=> $prdk->id])}}" method="post" id="contactForm" novalidate="novalidate">
+                                                    <form class="form-contact contact_form" action="{{route('form.insert', ['id'=> $produk->id])}}" method="post" id="contactForm" novalidate="novalidate">
+                                                            {{ csrf_field() }}
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="form-group">
+                                                                @if($errors->has('name'))
+                                                                    <span class="label label-danger" style="color:red">{{$errors->first('name')}}</span>                                                                                        
+                                                                @endif
                                                                      <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter your name'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
+                                                                @if($errors->has('email'))
+                                                                    <span class="label label-danger" style="color:red">{{$errors->first('email')}}</span>                                                                                        
+                                                                @endif
                                                                      <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                  <input class="form-control" name="phone" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder = 'Enter Your Phone Number'>
+                                                                @if($errors->has('phone'))
+                                                                    <span class="label label-danger" style="color:red">{{$errors->first('phone')}}</span>                                                                                        
+                                                                @endif
+                                                                  <input class="form-control" name="phone" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Phone Number'" placeholder = 'Enter Your Phone Number' onkeypress='validate(event)'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
-                                                                  <input class="form-control" name="amount" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Amount'" placeholder = 'Enter Your Amount'>
+                                                                @if($errors->has('amount'))
+                                                                    <span class="label label-danger" style="color:red">{{$errors->first('amount')}}</span>                                                                                        
+                                                                @endif
+                                                                  <input class="form-control" name="amount" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Amount'" placeholder = 'Enter Your Amount' onkeypress='validate(event)'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="form-group">
+                                                                @if($errors->has('message'))
+                                                                    <span class="label label-danger" style="color:red">{{$errors->first('message')}}</span>                                                                                        
+                                                                @endif
                                                                      <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Message'></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group mt-3">
-                                                            <button type="submit" class="button button-contactForm btn_1">Send Message</button>
+                                                            <button type="submit" class="button button-contactForm btn_1">Submit</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -246,6 +262,26 @@
             <script src="js/waypoints.min.js"></script>
             <!-- custom js -->
             <script src="js/custom.js"></script>
+
+            <script>
+                function validate(evt) {
+                    var theEvent = evt || window.event;
+
+                    // Handle paste
+                    if (theEvent.type === 'paste') {
+                        key = event.clipboardData.getData('text/plain');
+                    } else {
+                    // Handle key press
+                        var key = theEvent.keyCode || theEvent.which;
+                        key = String.fromCharCode(key);
+                    }
+                    var regex = /[0-9]|\./;
+                    if( !regex.test(key) ) {
+                        theEvent.returnValue = false;
+                        if(theEvent.preventDefault) theEvent.preventDefault();
+                    }
+                }
+            </script>
         </body>
 
         </html>

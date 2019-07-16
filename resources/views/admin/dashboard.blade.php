@@ -1,9 +1,13 @@
 @extends('admin.master')
 @section('content')
     <h1>saassa</h1>
-    <canvas id="grafik_lav"></canvas>
+    <div id="container" style="width: 100%;">
+        <canvas id="grafik_lav"></canvas>
+    </div>
+    
     <script type="text/javascript" src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
     <script type="text/javascript" src="http://www.chartjs.org/samples/latest/utils.js"></script>
+
     <script type="text/javascript">
         var color = Chart.helpers.color;
         var barChartData = {

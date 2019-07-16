@@ -50,7 +50,7 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          RAD Tim
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -368,7 +368,7 @@ The above copyright notice and this permission notice shall be included in all c
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
-            <nav class="footer-nav">
+            <!-- <nav class="footer-nav">
               <ul>
                 <li>
                   <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
@@ -380,13 +380,13 @@ The above copyright notice and this permission notice shall be included in all c
                   <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
             <div class="credits ml-auto">
               <span class="copyright">
                 ©
                 <script>
                   document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                </script>, made with <i class="fa fa-heart heart"></i> by RAD Tim
               </span>
             </div>
           </div>

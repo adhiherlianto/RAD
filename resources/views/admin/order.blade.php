@@ -13,8 +13,9 @@
                       <th>No Hp</th>                      
                       <th>Keterangan</th>
                       <th>Jumlah</th>
+                      <th>Total Harga</th>
+                      <th>Status</th>
                       <th>Action</th>
-                      <th>Selesai</th>
                     </thead>
                     <tbody>
                       @foreach($order as $order)
@@ -24,7 +25,8 @@
                             <td>{{$order->nohp}}</td>
                             <td>{{$order->keterangan}}</td>
                             <td>{{$order->jumlah}}</td>
-                            <td><a href="{{route('order.selesai', ['id' => $order->id])}}" class="btn btn-dangerous">Selesai</a></td>
+                            <td>Rp.{{$order->total}}</td>
+                            <td><a href="{{route('order.selesai', ['id' => $order->id])}}" class="btn btn-infosas">Selesai</a></td>
                             
                             <td><a href="{{route('order.edit', ['id' => $order->id])}}" class="btn btn-primary">Edit</a>
                             <a href="{{route('order.delete', ['id' => $order->id])}}" class="btn btn-danger">Delete</a></td>

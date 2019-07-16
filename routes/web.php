@@ -38,5 +38,5 @@ Route::group(['middleware' => ['auth']], function () {
 
 // Route::get('/dashboard', 'OrderController@index')->name('dashboard');
 // Route::get('/order', 'OrderController@order')->name('order');
-Route::get('formOrder/insert/{id}', 'FrontController@insert')->name('form.insert');
+Route::post('formOrder/insert/{id}', 'FrontController@insert')->name('form.insert');
 

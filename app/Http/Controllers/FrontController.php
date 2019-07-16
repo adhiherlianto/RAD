@@ -22,75 +22,62 @@ class FrontController extends Controller
     }
 
     function insert(Request $request, $id)
-    {   
-
-
+    {           
+        // dd($id);
     	$aturan = [
     		'name' => 'required',
-    		'email' => 'required|unique',
+    		'email' => 'required',
             'phone' => 'required|numeric',
             'amount' => 'required|numeric',
             'message' => 'required',
     	];
 
         $pesan = [
-            'required' => 'Data wajib di isi',
-            'numeric'  => 'Data wajib Angka',
-            'unique'   => 'Email sudah terdaftar'
+            'required' => 'Data wajib di isi',            
         ];
 
-        $this->validate($request, $aturan, $pesan);
-        dd($id);
+        $this->validate($request, $aturan, $pesan);        
 
-     //    Customer::create([
-     //        'nama' => $request->name,
-     //        'email' => $request->email,
-     //        'nohp' => $request->phone,
-     //        'file' => '1.jpg',
-     //        'keterangan' => $request->message
-     //    ]);
+        $customer = Customer::create([
+            'nama' => $request->name,
+            'email' => $request->email,
+            'nohp' => $request->phone,
+            'file' => '1.jpg',
+            'keterangan' => $request->message
+        ]);
 
-     //    $id = DB::getPdo()->lastInsertId();
+     
 
-     //    Order::create([
-     //        'customer_id' => $id,
-     //        'produk_id' => 
-     //    ]);
+        Order::create([
+            'customer_id' => $customer->id,
+            'produk_id' => $id,
+            'jumlah' => $request->amount,            
+        ]);
 
 
-
-        // return redirect()->back();
+        return redirect()->back();
     }
 
-
-
-    // public function store(Request $request)
+    // public function store(Request $request, $id, $cid)
     // {
-    //     $aturan = [
-    //         'nama' => 'required',
-    //         'kategori' => 'required',
-    //         'jumlah' => 'required|numeric',
-    //         'hjual' => 'required|numeric',
-    //         'hbeli' => 'required|numeric',
-    //     ];
 
-    //     $pesan = [
-    //         'required' => 'Data ini wajib di Isi',
-    //         'numeric' => 'Mohon isi dengan angka'
-    //     ];
-
-    //     $this->validate($request,$aturan,$pesan);
-
-    //     produk::create([
-    //         'nama' => $request->nama,
-    //         'harga_beli' => $request->hbeli,
-    //         'harga_jual' => $request->hjual,
-    //         'qty' => $request->jumlah,
-    //         'id_kategori' => $request->kategori
+    //     DB::table('customers')->where(['id' => $cid])->update([
+    //         'nama' => $request->nama,            
+    //         'nohp' => $request->nohp,
+    //         'keterangan' => $request->keterangan,
     //     ]);
 
-    //     return redirect()->route('home');
+    //     DB::table('orders')->where(['id'=> $id])->update([
+    //         'jumlah' => $request->jumlah,
+    //         'produk_id' => $request->produk
+    //     ]);
+
+    //     return redirect()->route('order');
     // }
+
+
+
+    
 }
 
 
