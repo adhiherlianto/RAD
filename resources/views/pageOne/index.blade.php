@@ -86,14 +86,8 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5>RAD</h5>
-                            <h1> Cari cemilan ??? kunjungi website kami saja </h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h1> Cari cemilan ??? order disini aja </h1>
+                            <p>RAD adalah sebuah toko yang bergerak di bidang cemilan. Toko ini menyedikan beberapa varian rasa. Bagi anda yang suka nyemil kue dan donat, anda sudah berada di tempat yang pas untuk melakukan order</p>
                             <!-- <a href="#" class="btn_1">View Course </a>
                             <a href="#" class="btn_2">Get Started </a> -->
                         </div>
@@ -120,7 +114,7 @@
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><i class="fas fa-cloud"></i></span>
+                            <span class="single_feature_icon"><i class="ti-layers"></i></span>
                             <h4>Layanan Teknologi Internet</h4>
                             <p>Kami hadir dengan teknologi cloud-computing, Online Service.</p>
                         </div>
@@ -234,9 +228,9 @@
                         <div class="special_cource_text">
                             <a href="{{url('/formOrder', ['id'=> $produk->id])}}" class="btn_4">Order</a>
                             <h4>{{$produk->harga}}</h4>
-                            <p><img src="{{asset('assets/front/img/kue_1.png')}}" alt=""></p>
+                            <p><img src="{{$produk->foto}}" alt=""></p>
                             <a href="course-details.html"><h3>{{$produk->nama}}</h3></a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                            <p>Lamington adalah ikon kue nasional Australia. Kue bolu yang namanya diambil dari Lord Lamington yang menjadi Gubernur Queensland pada akhir abad 19 ini dilapisi cokelat dan taburan kelapa. Sedangkan kue Lamington modern memiliki punya beragam isian seperti raspberry dan mudah ditemui di supermarket-supermarket di Australia.</p>
                             <div class="author_info">
                                 <div class="author_img">
                                     <img src="img/author/author_1.png" alt="">
@@ -253,7 +247,7 @@
                                         <a href="#"><img src="img/icon/color_star.svg" alt=""></a>
                                         <a href="#"><img src="img/icon/star.svg" alt=""></a>
                                     </div>
-                                    <p>3.8 Ratings</p>
+                                    <p>4.8 Ratings</p>
                                 </div>
                             </div>
                         </div>
@@ -376,9 +370,8 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-xl-5">
-                    <div class="section_tittle text-center">
-                        <p>tesimonials</p>
-                        <h2>Happy Students</h2>
+                    <div class="section_tittle text-center"> <br> <br>
+                        <p>Tesimonials</p>
                     </div>
                 </div>
             </div>
@@ -389,11 +382,9 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Setelah 1 bulan saya mencari-mencari situs yang menjual kue atau donat tidak pernah ketemu, tapi alhamdulillah saya sudah menemukan RAD. Pelayanan dan hargsa yang bersahabat membuat saya setia dengan toko RAD ini</p>
+                                        <h4>Samsudin</h4>
+                                        <h5>Karyawan</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
@@ -403,11 +394,9 @@
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>kue RAD yang selalu setia menemani saya ketika saya membuat sebuah program dengan rasanya yang enak</p>
+                                        <h4>Jonas Parlaungan</h4>
+                                        <h5>Desainer</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
@@ -421,11 +410,9 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Banyak varian rasanya membuat saya setia dengan donat RAD. Mantap, sukses selalu RAD</p>
+                                        <h4>Soraya Merlina</h4>
+                                        <h5>Penulis</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
@@ -435,11 +422,9 @@
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>RAD enak, murah, pelayanan bagus, pkotnya the best deh</p>
+                                        <h4>Leonardo S</h4>
+                                        <h5>Musisi</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
@@ -453,11 +438,9 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Rotinya enak dan pengirimannya juga cepat. TOPMARKOTP</p>
+                                        <h4>Supranto Jiwajiwa</h4>
+                                        <h5>Dosen Psikologi</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
@@ -467,11 +450,9 @@
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Sumpah rasanya enak banget, rekomendasi toko kue dan donat deh, hehe</p>
+                                        <h4>Piorpior </h4>
+                                        <h5>Web designer</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
@@ -495,8 +476,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5">
                     <div class="section_tittle text-center">
-                        <p>Our Blog</p>
-                        <h2>Students Blog</h2>
+                        <p>About Us</p>
+                        <h2>Founder of RAD</h2>
                     </div>
                 </div>
             </div>
@@ -510,10 +491,10 @@
                                 <a href="blog.html">
                                     <h5 class="card-title">Akli Hakiki Hasibuan</h5>
                                 </a>
-                                <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                                <p>Seorang Android developer sudah berpengalaman di 5 tahun, dan pernah menjadi manager di salah satu perusahaan</p>
                                 <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>2k Like</li>
+                                    <!-- <li> <span class="ti-comments"></span>2 Comments</li>
+                                    <li> <span class="ti-heart"></span>2k Like</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -528,10 +509,10 @@
                                 <a href="blog.html">
                                     <h5 class="card-title">Muhammad Adhi Herlianto Hasibuan</h5>
                                 </a>
-                                <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                                <p>Seorang Web Develpment yang sudah berpengalaman sudah lebih dari 15 tahun</p>
                                 <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>2k Like</li>
+                                    <!-- <li> <span class="ti-comments"></span>2 Comments</li>
+                                    <li> <span class="ti-heart"></span>2k Like</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -546,10 +527,10 @@
                                 <a href="blog.html">
                                     <h5 class="card-title">Muhammad Rafly Tarhan Hasibuan</h5>
                                 </a>
-                                <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
+                                <p>Seorang Android Developer yang sudah berpengalaman sudah lebih dari 10 tahun</p>
                                 <ul>
-                                    <li> <span class="ti-comments"></span>2 Comments</li>
-                                    <li> <span class="ti-heart"></span>2k Like</li>
+                                    <!-- <li> <span class="ti-comments"></span>2 Comments</li>
+                                    <li> <span class="ti-heart"></span>2k Like</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -567,16 +548,16 @@
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
                         <a href="index.html"> <img src="img/logo.png" alt=""> </a>
-                        <p>But when shot real her. Chamber her one visite removal six
-                            sending himself boys scot exquisite existend an </p>
-                        <p>But when shot real her hamber her </p>
+                        <p>Blog</p>
+                        <p>Official Store</p>
+                        <p>Kebijakan Privasi</p>
+                        <p>Sayarat dan Ketentuan</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-4">
                     <div class="single-footer-widget footer_2">
                         <h4>Newsletter</h4>
-                        <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
-                        </p>
+                        <p>Kami akan tetap update dengan produk kami. Terimakasih telah memilih kami</p>
                         <form action="#">
                             <div class="form-group">
                                 <div class="input-group mb-3">
@@ -601,9 +582,9 @@
                     <div class="single-footer-widget footer_2">
                         <h4>Contact us</h4>
                         <div class="contact_info">
-                            <p><span> Address :</span> Hath of it fly signs bear be one blessed after </p>
-                            <p><span> Phone :</span> +2 36 265 (8060)</p>
-                            <p><span> Email : </span>info@colorlib.com </p>
+                            <p><span> Address :</span> Beji Timur Kota Depok Jawa Barat </p>
+                            <p><span> Phone :</span> +21 362 265 (8060)</p>
+                            <p><span> Email : </span>RAD@gmail.com </p>
                         </div>
                     </div>
                 </div>
@@ -617,7 +598,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> RAD Store | </a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>

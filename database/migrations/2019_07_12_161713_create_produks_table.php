@@ -17,6 +17,8 @@ class CreateProduksTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('harga');
+            $table->text('deskripsi');
+            $table->string('foto');
             $table->timestamps();
         });
     }
