@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Order;
 use Auth;
+use App\Produk;
+use App\Customer;
+
 
 
 class OrderController extends Controller
@@ -37,8 +40,9 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $produk = Produk::all();
+        return view('admin.create', ['produk'=>$produk]);
     }
 
     /**
@@ -49,7 +53,41 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aturan = [
+            'nama' => 'required',
+            'email' => 'required',
+            'nohp' => 'required|numeric',
+            'alamat' => 'required',
+            'produk' => 'required',
+            'jumlah' => 'required|numeric',                        
+        ];
+
+        $pesan = [
+            'required' => 'Data ini wajib di Isi',
+            'numeric' => 'Mohon isi dengan angka'
+        ];
+
+        $this->validate($request,$aturan,$pesan);
+
+        $customer = Customer::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'nohp' => $request->nohp,
+            'keterangan' => $request->alamat,
+            'file' => '1.jpg'            
+        ]);
+
+        $lastID = $customer->id;
+
+        Order::create([
+            'customer_id' => $lastID,
+            'produk_id' => $request->produk,
+            'jumlah' => $request->jumlah,
+            'status' => '0'
+        ]);
+
+
+        return redirect()->route('order');
     }
 
     /**
@@ -74,7 +112,7 @@ class OrderController extends Controller
         $order = DB::table('orders')        
                 ->join('customers', 'customers.id', '=', 'orders.customer_id')
                 ->join('produks', 'orders.produk_id', '=', 'produks.id' )
-                ->select('customers.id AS cid','customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id AS id')
+                ->select('customers.id AS cid','customers.nama AS nama', 'customers.email AS email', 'customers.nohp AS nohp', 'customers.keterangan AS keterangan', 'produks.nama AS produk', 'orders.jumlah', 'orders.id AS id', 'orders.produk_id AS produk_id')
                 ->where('orders.id', '=', $id)
                 ->first();
                 // dd($order);
@@ -130,8 +168,10 @@ class OrderController extends Controller
     }
 
     public function selesai($id){
-        $update =   DB::table('orders')->update(['status'=>'1'])->where('id', '=', $id);
+        // dd($id);
 
+        DB::table('orders')->where('id',$id)->update(['status'=>'1']);
+        
         return redirect()->route('order');
     }
 

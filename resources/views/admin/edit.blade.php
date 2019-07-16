@@ -17,7 +17,7 @@
                             <select  id="produk" class="form-control" name="produk">
                                 @foreach($produk as $produk)
                                     <!-- <option name="produk" value="{{$produk->id}}">{{$produk->nama}}</option> -->
-                                    <option value="{{$produk->id}}" {{ ($produk->id == $order->id) ? 'selected' : '' }} >{{$produk->nama}}</option>
+                                    <option value="{{$produk->id}}" {{($order->produk_id == $produk->id) ? 'selected' : '' }} >{{$produk->nama}}</option>
                                 @endforeach
                             </select>                            
                         </div>

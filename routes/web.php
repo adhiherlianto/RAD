@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () { 
     Route::get('/dashboard', 'OrderController@index')->name('dashboard');
     Route::get('/order', 'OrderController@order')->name('order');
+    Route::get('/order/create', 'OrderController@create')->name('order.create');
+    Route::post('/order/store', 'OrderController@store')->name('order.store');
     Route::get('order/edit/{id}', 'OrderController@edit')->name('order.edit');
     Route::get('order/delete/{id}', 'OrderController@destroy')->name('order.delete');
     Route::post('order/update/{id}/{cid}', 'OrderController@update')->name('order.update');

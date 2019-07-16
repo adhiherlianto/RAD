@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h3>Customer Table</h3></div>
+                <div class="card-header"><h3>Customer Table</h3><a href="{{route('order.create')}}" class="btn btn-primary">create Order</a></div>
                 <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
