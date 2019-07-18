@@ -119,6 +119,7 @@ class OrderController extends Controller
         $produk = DB::table('produks')->get();
 
         return view('admin.edit', ['order'=> $order, 'produk' => $produk]);
+        
     }
 
     /**
@@ -193,22 +194,21 @@ class OrderController extends Controller
     {
         # code...
         $kateogri = DB::table('produks')->get();  
-        dd($keteogori)      ;
+        
         $value = [];
         $label = [];
-        foreach ($kateogri as $i => $v) {
+        foreach ($kateogri as $i => $v) {                                            
             $value[$i] = DB::table('orders')->where('produk_id',$v->id)->count();
             $label[$i] = $v->nama;
         }
+        
+        // dd($value);
 
-        // return view('/admin/dashboard')
-        // ->with('value',json_encode($value))
-        // ->with('label',json_encode($label));
-        // dd($label);
+        return view('/admin/dashboard')
+        ->with('value',json_encode($value))
+        ->with('label',json_encode($label));
 
-        return view('/admin/dashboard',[
-            'value' => json_encode($value),
-            'label' => json_encode($label)
-        ]);
     }
+
+    
 }

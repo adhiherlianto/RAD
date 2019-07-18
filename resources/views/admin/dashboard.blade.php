@@ -1,13 +1,10 @@
 @extends('admin.master')
 @section('content')
-    <h1>saassa</h1>
-    <div id="container" style="width: 100%;">
-        <canvas id="grafik_lav"></canvas>
-    </div>
+
     
+    <canvas id="grafik_lav" width="250" height="100"></canvas>
     <script type="text/javascript" src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
     <script type="text/javascript" src="http://www.chartjs.org/samples/latest/utils.js"></script>
-
     <script type="text/javascript">
         var color = Chart.helpers.color;
         var barChartData = {
@@ -27,14 +24,26 @@
                 data: barChartData,
                 options: {
                     responsive: true,
+
                     legend: {
                         position: 'top',
                     },
+
                     title: {
                         display: true,
                         text: 'Grafik Data Produk'
+                    },
+
+                    scales: {
+                       yAxes: [{
+                             ticks: {
+                               beginAtZero: true
+                            }
+                        }]
                     }
-                }
+                    
+                },
+
             });
         };
     </script>

@@ -5,9 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Etrain</title>
-    
-    <link rel="icon" href="{{asset('assets/front/img/favicon.png')}}">
+    <title>RAD</title>
+
+    <link rel="icon" href="{{asset('assets/front/img/logo.png')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}">
     <!-- animate CSS -->
@@ -33,7 +33,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="{{asset('assets/front/img/logo.png')}}" alt="logo"> </a>
+                        <a class="navbar-brand" href="#"> <img src="{{asset('assets/front/img/logo.png')}}" alt="logo">
+                        </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -44,16 +45,16 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="{{route('pageone')}}">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html">Features</a>
+                                    <a class="nav-link" href="#">Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="cource.html">Product</a>
+                                    <a class="nav-link" href="#">Product</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">About</a>
+                                    <a class="nav-link" href="#">About</a>
                                 </li>
                                 <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,10 +66,10 @@
                                     </div>
                                 </li> -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="#">Contact</a>
                                 </li>
                                 <li class="d-none d-lg-block">
-                                    <a class="btn_1" href="#">Get a Quote</a>
+                                    <!-- <a class="btn_1" href="#">Get a Quote</a> -->
                                 </li>
                             </ul>
                         </div>
@@ -87,7 +88,9 @@
                     <div class="banner_text">
                         <div class="banner_text_iner">
                             <h1> Cari cemilan ??? order disini aja </h1>
-                            <p>RAD adalah sebuah toko yang bergerak di bidang cemilan. Toko ini menyedikan beberapa varian rasa. Bagi anda yang suka nyemil kue dan donat, anda sudah berada di tempat yang pas untuk melakukan order</p>
+                            <p>RAD adalah sebuah toko yang bergerak di bidang cemilan. Toko ini menyedikan beberapa
+                                varian rasa. Bagi anda yang suka nyemil kue dan donat, anda sudah berada di tempat yang
+                                pas untuk melakukan order</p>
                             <!-- <a href="#" class="btn_1">View Course </a>
                             <a href="#" class="btn_2">Get Started </a> -->
                         </div>
@@ -102,7 +105,7 @@
     <section class="feature_part">
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-sm-6 col-xl-3 align-self-center">
                     <div class="single_feature_text ">
                         <h2> OUR <br> Feature</h2>
@@ -144,7 +147,7 @@
     <!-- upcoming_event part start-->
 
     <!-- learning part start-->
-  <!--   <section class="learning_part">
+    <!--   <section class="learning_part">
         <div class="container">
             <div class="row align-items-sm-center align-items-lg-stretch">
                 <div class="col-md-7 col-lg-7">
@@ -229,14 +232,16 @@
                             <a href="{{url('/formOrder', ['id'=> $produk->id])}}" class="btn_4">Order</a>
                             <h4>{{$produk->harga}}</h4>
                             <p><img src="{{$produk->foto}}" alt=""></p>
-                            <a href="course-details.html"><h3>{{$produk->nama}}</h3></a>
-                            <p>Lamington adalah ikon kue nasional Australia. Kue bolu yang namanya diambil dari Lord Lamington yang menjadi Gubernur Queensland pada akhir abad 19 ini dilapisi cokelat dan taburan kelapa. Sedangkan kue Lamington modern memiliki punya beragam isian seperti raspberry dan mudah ditemui di supermarket-supermarket di Australia.</p>
+                            <a href="#">
+                                <h3>{{$produk->nama}}</h3>
+                            </a>
+                            <p>{{$produk->deskripsi}}</p>
                             <div class="author_info">
                                 <div class="author_img">
                                     <img src="img/author/author_1.png" alt="">
                                     <div class="author_info_text">
                                         <p>Conduct by:</p>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="author_rating">
@@ -326,7 +331,7 @@
     <!--::blog_part end::-->
 
     <!-- learning part start-->
-  <!--   <section class="advance_feature learning_part">
+    <!--   <section class="advance_feature learning_part">
         <div class="container">
             <div class="row align-items-sm-center align-items-xl-stretch">
                 <div class="col-md-6 col-lg-6">
@@ -382,7 +387,9 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Setelah 1 bulan saya mencari-mencari situs yang menjual kue atau donat tidak pernah ketemu, tapi alhamdulillah saya sudah menemukan RAD. Pelayanan dan hargsa yang bersahabat membuat saya setia dengan toko RAD ini</p>
+                                        <p>Setelah 1 bulan saya mencari-mencari situs yang menjual kue atau donat tidak
+                                            pernah ketemu, tapi alhamdulillah saya sudah menemukan RAD. Pelayanan dan
+                                            hargsa yang bersahabat membuat saya setia dengan toko RAD ini</p>
                                         <h4>Samsudin</h4>
                                         <h5>Karyawan</h5>
                                     </div>
@@ -394,7 +401,8 @@
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>kue RAD yang selalu setia menemani saya ketika saya membuat sebuah program dengan rasanya yang enak</p>
+                                        <p>kue RAD yang selalu setia menemani saya ketika saya membuat sebuah program
+                                            dengan rasanya yang enak</p>
                                         <h4>Jonas Parlaungan</h4>
                                         <h5>Desainer</h5>
                                     </div>
@@ -410,14 +418,15 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Banyak varian rasanya membuat saya setia dengan donat RAD. Mantap, sukses selalu RAD</p>
+                                        <p>Banyak varian rasanya membuat saya setia dengan donat RAD. Mantap, sukses
+                                            selalu RAD</p>
                                         <h4>Soraya Merlina</h4>
                                         <h5>Penulis</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                         <img src="{{asset('assets/front/img/testimonial_img_3.png')}}" alt="#">
+                                        <img src="{{asset('assets/front/img/testimonial_img_3.png')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
@@ -485,13 +494,13 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="{{asset('assets/front/img/blog/blog_1.png')}}" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/akli.jpg')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
                                 <!-- <a href="#" class="btn_4">Design</a> -->
-                                <a href="blog.html">
-                                    <h5 class="card-title">Akli Hakiki Hasibuan</h5>
-                                </a>
-                                <p>Seorang Android developer sudah berpengalaman di 5 tahun, dan pernah menjadi manager di salah satu perusahaan</p>
+                                <h5 class="card-title">Akli Hakiki Hasibuan</h5>
+                                <p>Seorang Android developer sudah berpengalaman di 5 tahun, dan pernah menjadi
+                                    manager
+                                    di salah satu perusahaan</p>
                                 <ul>
                                     <!-- <li> <span class="ti-comments"></span>2 Comments</li>
                                     <li> <span class="ti-heart"></span>2k Like</li> -->
@@ -503,12 +512,10 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="{{asset('assets/front/img/blog/blog_3.png')}}" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/adhi.jpg')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
                                 <!-- <a href="#" class="btn_4">Developing</a> -->
-                                <a href="blog.html">
-                                    <h5 class="card-title">Muhammad Adhi Herlianto Hasibuan</h5>
-                                </a>
+                                <h5 class="card-title">Muhammad Adhi Herlianto Hasibuan</h5>
                                 <p>Seorang Web Develpment yang sudah berpengalaman sudah lebih dari 15 tahun</p>
                                 <ul>
                                     <!-- <li> <span class="ti-comments"></span>2 Comments</li>
@@ -521,12 +528,10 @@
                 <div class="col-sm-6 col-lg-4 col-xl-4">
                     <div class="single-home-blog">
                         <div class="card">
-                            <img src="{{asset('assets/front/img/blog/blog_2.png')}}" class="card-img-top" alt="blog">
+                            <img src="{{asset('assets/front/img/blog/rafly.jpg')}}" class="card-img-top" alt="blog">
                             <div class="card-body">
                                 <!-- <a href="#" class="btn_4">Design</a> -->
-                                <a href="blog.html">
-                                    <h5 class="card-title">Muhammad Rafly Tarhan Hasibuan</h5>
-                                </a>
+                                <h5 class="card-title">Muhammad Rafly Tarhan Hasibuan</h5>
                                 <p>Seorang Android Developer yang sudah berpengalaman sudah lebih dari 10 tahun</p>
                                 <ul>
                                     <!-- <li> <span class="ti-comments"></span>2 Comments</li>
@@ -547,7 +552,7 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
-                        <a href="index.html"> <img src="img/logo.png" alt=""> </a>
+                        <a href="#"> <img src="img/logo.png" alt=""> </a>
                         <p>Blog</p>
                         <p>Official Store</p>
                         <p>Kebijakan Privasi</p>
@@ -597,9 +602,13 @@
                     <div class="copyright_part_text text-center">
                         <div class="row">
                             <div class="col-lg-12">
-                                <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> RAD Store | </a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                <p class="footer-text m-0">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
+                                    </script> RAD Store | </a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
                             </div>
                         </div>
                     </div>

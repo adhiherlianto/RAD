@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => ['auth']], function () { 
-    Route::get('/dashboard', 'OrderController@index')->name('dashboard');
+    // Route::get('/dashboard', 'OrderController@index')->name('dashboard');
     Route::get('/order', 'OrderController@order')->name('order');
     Route::get('/order/create', 'OrderController@create')->name('order.create');
     Route::post('/order/store', 'OrderController@store')->name('order.store');
@@ -32,11 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('order/selesai/{id}', 'OrderController@selesai')->name('order.selesai');
     Route::get('order/history', 'OrderController@history')->name('order.history');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    Route::get('order/grafik', 'OrderController@grafikProduk');
+    Route::get('/dashboard', 'OrderController@grafikProduk')->name('dashboard');
 });
 
 
 // Route::get('/dashboard', 'OrderController@index')->name('dashboard');
 // Route::get('/order', 'OrderController@order')->name('order');
 Route::post('formOrder/insert/{id}', 'FrontController@insert')->name('form.insert');
-
